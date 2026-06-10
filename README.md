@@ -22,12 +22,29 @@ Ouvrir **http://localhost:3001** (port 3001 pour ne pas conflit avec KonaData su
 
 ## Déploiement safepit.com (Vercel)
 
-1. Créer un **nouveau projet Vercel** depuis le dépôt `safepit` (pas `guinea-pwa`).
-2. Domaine personnalisé : `safepit.com` + `www.safepit.com`.
-3. Variable d'environnement :
-   ```
-   NEXT_PUBLIC_APP_URL=https://safepit.com
-   ```
+| Ressource | URL |
+|-----------|-----|
+| **GitHub** | https://github.com/Mamady10/safepit |
+| **Vercel (prod)** | https://safepit.vercel.app |
+| **Dashboard Vercel** | https://vercel.com/konadata/safepit |
+
+Variable d'environnement production :
+```
+NEXT_PUBLIC_APP_URL=https://safepit.com
+```
+
+### Domaine safepit.com (DNS à configurer)
+
+Le domaine est ajouté sur Vercel. Chez votre registrar (actuellement nameservers Afternic), configurez :
+
+| Type | Nom | Valeur |
+|------|-----|--------|
+| **A** | `@` | `76.76.21.21` |
+| **A** | `www` | `76.76.21.21` |
+
+Ou basculez les nameservers vers Vercel : `ns1.vercel-dns.com` / `ns2.vercel-dns.com`.
+
+Après propagation DNS (5 min à 48 h), `https://safepit.com` pointera vers SafePit — **pas** vers KonaData.
 
 ## KonaData (konadata.com)
 
